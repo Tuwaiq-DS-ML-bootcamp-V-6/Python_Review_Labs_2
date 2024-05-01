@@ -1,0 +1,48 @@
+while True:
+    try:
+        # Step 1: Ask the user to enter his name.
+        name = input("Enter your name: ")
+
+        # Step 2: Ask the user to enter his age.
+        age = int(input("Enter your age: "))
+
+        if 0 <= age <= 6:
+            print("Kid")
+        elif age < 0:
+            print("Wrong age value, you cannot enter a value less than 0.")
+        else:
+            # Step 3: Initialize total_cost variable
+            total_cost = 0
+
+            # Step 4: Ask him to enter the number of items that he wants to buy.
+            num_items = int(input("Enter the number of items you want to buy: "))
+
+            # Step 5: Loop for each item
+            for i in range(num_items):
+                # Ask for item details
+                item_name = input("Enter the item name: ")
+                item_price = float(input("Enter the item price: "))
+                item_quantity = int(input("Enter the item quantity: "))
+
+                # Calculate item cost
+                item_cost = item_price * item_quantity
+
+                # Update total cost
+                total_cost += item_cost
+
+                # Print item cost and total cost
+                print(f"Item cost for {item_name}: {item_cost}")
+                print(f"Total cost so far: {total_cost}")
+
+            # Step 6: Check if total cost is greater than 200 for discount
+            if total_cost > 200:
+                total_cost *= 0.8  # Apply 20% discount
+                print("Congratulations! You get a 20% discount.")
+
+    except ValueError:
+        print("Invalid input! Please enter a valid value.")
+
+    # Ask the user if they want to repeat the process
+    repeat = input("Do you want to repeat the process? (yes/no): ")
+    if repeat.lower() != "yes":
+        break
